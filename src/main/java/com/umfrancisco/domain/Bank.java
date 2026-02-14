@@ -1,4 +1,4 @@
-package com.umfrancisco.model;
+package com.umfrancisco.domain;
 
 import java.util.ArrayList;
 import java.util.List;

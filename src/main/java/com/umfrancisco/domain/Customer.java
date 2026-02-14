@@ -1,4 +1,4 @@
-package com.umfrancisco.model;
+package com.umfrancisco.domain;
 
 public class Customer {
 	private final int id;

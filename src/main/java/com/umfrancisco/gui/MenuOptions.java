@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.umfrancisco.model.Bank;
-import com.umfrancisco.model.Customer;
+import com.umfrancisco.domain.Bank;
+import com.umfrancisco.domain.Customer;
 
 public class MenuOptions {
 	

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
-import com.umfrancisco.model.Bank;
+import com.umfrancisco.domain.Bank;
 
 public class BankService {
 	public static void main(String[] args) {
