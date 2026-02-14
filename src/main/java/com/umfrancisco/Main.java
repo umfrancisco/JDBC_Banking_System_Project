@@ -12,11 +12,11 @@ public class Main {
 		BankService bankService = new BankService();
 		List<Bank> banks = bankService.getBanks();
 		
-		String bs = "";
+		String banksStrFormatted = "";
 		for (Bank b : banks) {
-			bs += b.getBankNumber()+" - "+b.getName()+"\n";
+			banksStrFormatted += b.getBankNumber()+" - "+b.getName()+"\n";
 		}
-		String bankMenu = "Hello and Welcome!\nType your bank number:\n"+bs;
+		String bankMenu = "Hello and Welcome!\nType your bank number:\n"+banksStrFormatted;
 		
 		String customerMenu = """
 				Choose one option:

@@ -12,6 +12,7 @@ public class MenuOptions {
 	public static Bank showBankOptions(Scanner scanner, String bankMenu, List<Bank> banks) {
 		while (true) {
 			System.out.print(bankMenu);
+			System.out.println("-".repeat(40));
 			String option = scanner.nextLine();
 			System.out.println("-".repeat(40));
 			
@@ -22,7 +23,7 @@ public class MenuOptions {
 			} else if (option.equals("300")) {
 				return banks.get(2);
 			} else {
-				System.out.println("Bank number not found...");
+				System.out.println("Bank number not found...\n");
 			}
 			
 		}
