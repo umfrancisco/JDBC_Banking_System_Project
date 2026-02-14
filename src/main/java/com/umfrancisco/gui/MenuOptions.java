@@ -1,25 +1,26 @@
-package com.umfrancisco.menu;
+package com.umfrancisco.gui;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.umfrancisco.bank.Bank;
-import com.umfrancisco.bank.Customer;
+import com.umfrancisco.model.Bank;
+import com.umfrancisco.model.Customer;
 
 public class MenuOptions {
 	
-	public static Bank showBankOptions(Scanner scanner, String bankMenu, Bank[] banks) {
+	public static Bank showBankOptions(Scanner scanner, String bankMenu, List<Bank> banks) {
 		while (true) {
 			System.out.print(bankMenu);
 			String option = scanner.nextLine();
 			System.out.println("-".repeat(40));
 			
 			if (option.equals("100")) {
-				return banks[0];
+				return banks.get(0);
 			} else if (option.equals("200")) {
-				return banks[1];
+				return banks.get(1);
 			} else if (option.equals("300")) {
-				return banks[2];
+				return banks.get(2);
 			} else {
 				System.out.println("Bank number not found...");
 			}
@@ -88,9 +89,9 @@ public class MenuOptions {
 				String value = scanner.nextLine();
 				boolean result = bank.withdraw(customer, Double.parseDouble(value));
 				if (result) {
-					System.out.println("withdraw successful!!");
+					System.out.println("Withdraw successful!!");
 				} else {
-					System.out.println("Something went wrong...");
+					System.out.println("You can not withdraw a value greater than your balance...");
 				}
 				System.out.println("-".repeat(40));
 			} else if (option.equals("3")) {

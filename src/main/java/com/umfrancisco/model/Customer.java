@@ -1,4 +1,4 @@
-package com.umfrancisco.bank;
+package com.umfrancisco.model;
 
 public class Customer {
 	private final int id;
@@ -32,7 +32,7 @@ public class Customer {
 	}
 	
 	protected boolean withdraw(double amount) {
-		if (amount > 0) {
+		if (amount > 0 && amount < this.amount) {
 			this.amount -= amount;
 			return true;
 		}

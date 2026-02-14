@@ -1,4 +1,4 @@
-package com.umfrancisco.bank;
+package com.umfrancisco.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +38,8 @@ public class Bank {
 	
 	public boolean withdraw(Customer c, double amount) {
 		if (customers.contains(c) && amount > 0) {
-			c.withdraw(amount);
-			return true;
+			boolean result = c.withdraw(amount);
+			return result;
 		}
 		return false;
 	}

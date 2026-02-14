@@ -1,23 +1,22 @@
 package com.umfrancisco;
 
+import java.util.List;
 import java.util.Scanner;
-import com.umfrancisco.bank.Bank;
-import com.umfrancisco.menu.MenuOptions;
+
+import com.umfrancisco.dto.BankService;
+import com.umfrancisco.gui.MenuOptions;
+import com.umfrancisco.model.Bank;
 
 public class Main {
 	public static void main(String[] args) {
-		Bank[] banks = {new Bank(100, "São Paulo"), new Bank(200, "New York"), new Bank(300, "Buenos Aires")};
+		BankService bankService = new BankService();
+		List<Bank> banks = bankService.getBanks();
 		
-		String bankMenu = """
-				Hello! Welcome!
-				Bank Numbers:
-				
-					São Paulo Bank -> 100
-					New York Bank -> 200
-					Buenos Aires Bank -> 300
-					
-				Type your bank number:
-				""";
+		String bs = "";
+		for (Bank b : banks) {
+			bs += b.getBankNumber()+" - "+b.getName()+"\n";
+		}
+		String bankMenu = "Hello and Welcome!\nType your bank number:\n"+bs;
 		
 		String customerMenu = """
 				Choose one option:
