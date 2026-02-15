@@ -16,16 +16,13 @@ public class MenuOptions {
 			String option = scanner.nextLine();
 			System.out.println("-".repeat(40));
 			
-			if (option.equals("100")) {
-				return banks.get(0);
-			} else if (option.equals("200")) {
-				return banks.get(1);
-			} else if (option.equals("300")) {
-				return banks.get(2);
-			} else {
-				System.out.println("Bank number not found...\n");
+			for (var bank : banks) {
+				String bankNumber = bank.getBankNumber()+"";
+				if (option.equals(bankNumber)) {
+					return bank;
+				}
 			}
-			
+			System.out.println("Bank number not found...\n");
 		}
 	}
 	

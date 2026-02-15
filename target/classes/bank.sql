@@ -24,6 +24,9 @@ DESC customer;
 INSERT INTO bank (bank_number, bank_name) values
 (100, 'São Paulo'),
 (200, 'New York'),
-(300, 'Buenos Aires');
+(300, 'Buenos Aires'),
+(400, 'San Tiago'),
+(500, 'Bogotá'),
+(600, 'Montevideo');
 
 SELECT * FROM bank;

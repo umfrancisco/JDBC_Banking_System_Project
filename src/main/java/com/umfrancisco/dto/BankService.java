@@ -9,10 +9,6 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import com.umfrancisco.domain.Bank;
 
 public class BankService {
-	public static void main(String[] args) {
-		List<Bank> banks = new BankService().getBanks();
-		System.out.println(banks);
-	}
 	
 	public List<Bank> getBanks() {
 		var dataSource = new MysqlDataSource();
@@ -34,5 +30,13 @@ public class BankService {
 		}
 		
 		return banks;
+	}
+	
+	public static String printBankNumbers(List<Bank> banks) {
+		String banksStrFormatted = "";
+		for (Bank b : banks) {
+			banksStrFormatted += b.getBankNumber()+" - "+b.getName()+"\n";
+		}
+		return banksStrFormatted;
 	}
 }
