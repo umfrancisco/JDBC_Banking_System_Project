@@ -3,17 +3,17 @@ package com.umfrancisco;
 import java.util.List;
 import java.util.Scanner;
 
+import com.umfrancisco.dao.BankDAO;
 import com.umfrancisco.domain.Bank;
 import com.umfrancisco.gui.MenuOptions;
-import com.umfrancisco.service.BankService;
 
 public class Main {
 	public static void main(String[] args) {
-		BankService bankService = new BankService();
+		BankDAO bankService = new BankDAO();
 		List<Bank> banks = bankService.getBanks();
 		
-		String banksStrFormatted = BankService.printBankNumbers(banks);
-		String bankMenu = "Hello and Welcome!\nType your bank number:\n"+banksStrFormatted;
+		String banksStrFormatted = BankDAO.printBankNumbers(banks);
+		String bankMenu = "Hello and Welcome!\nType your bank number:\n\n"+banksStrFormatted;
 		
 		String customerMenu = """
 				Choose one option:

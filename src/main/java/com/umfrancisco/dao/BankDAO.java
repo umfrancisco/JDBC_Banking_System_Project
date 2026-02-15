@@ -1,24 +1,17 @@
-package com.umfrancisco.service;
+package com.umfrancisco.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.mysql.cj.jdbc.MysqlDataSource;
 import com.umfrancisco.domain.Bank;
+import com.umfrancisco.util.DatabaseConnection;
 
-public class BankService {
+public class BankDAO {
 	
 	public List<Bank> getBanks() {
-		var dataSource = new MysqlDataSource();
-		
-		dataSource.setServerName("localhost");
-		dataSource.setPort(3306);
-		dataSource.setDatabaseName("bank");
-		
 		List<Bank> banks = new ArrayList<>();
-		try (var conn = dataSource.getConnection("francisco", "1234"); var stmt = conn.createStatement();) {
+		try (var conn = DatabaseConnection.getConnection("bank"); var stmt = conn.createStatement();) {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM bank");
 			while (rs.next()) {
 				int number = rs.getInt("bank_number");
