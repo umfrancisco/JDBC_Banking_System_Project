@@ -1,4 +1,4 @@
-package com.umfrancisco.dto;
+package com.umfrancisco.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +19,7 @@ public class BankService {
 		
 		List<Bank> banks = new ArrayList<>();
 		try (var conn = dataSource.getConnection("francisco", "1234"); var stmt = conn.createStatement();) {
-			ResultSet rs = stmt.executeQuery("select * from bank");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM bank");
 			while (rs.next()) {
 				int number = rs.getInt("bank_number");
 				String name = rs.getString("bank_name");

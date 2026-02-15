@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.umfrancisco.domain.Bank;
-import com.umfrancisco.dto.BankService;
 import com.umfrancisco.gui.MenuOptions;
+import com.umfrancisco.service.BankService;
 
 public class Main {
 	public static void main(String[] args) {
