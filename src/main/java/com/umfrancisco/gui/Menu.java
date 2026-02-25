@@ -4,14 +4,38 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.umfrancisco.dao.BankDAO;
 import com.umfrancisco.domain.Bank;
 import com.umfrancisco.domain.Customer;
 
-public class MenuOptions {
+public class Menu {
+	
+	public static void start() {
+		BankDAO bankDAO = new BankDAO();
+		List<Bank> banks = bankDAO.getBanks();
+		
+		String banksStrFormatted = BankDAO.printBankNumbers(banks);
+		String bankMenu = """
+				Hello and Welcome!
+				Type your bank number:\n
+				""" + banksStrFormatted;
+		
+		String customerMenu = """
+				Choose one option:
+				1 - New Customer
+				2 - Existing Customer
+				3 - Quit
+				""";
+		
+		Scanner scanner = new Scanner(System.in);
+		Bank bank = Menu.showBankOptions(scanner, bankMenu, banks);
+		Menu.showCustomerOptions(scanner, customerMenu, bank);
+		scanner.close();
+	}
 	
 	public static Bank showBankOptions(Scanner scanner, String bankMenu, List<Bank> banks) {
 		while (true) {
-			System.out.printf("%70s", bankMenu);
+			System.out.print(bankMenu);
 			System.out.println("-".repeat(40));
 			String option = scanner.nextLine();
 			System.out.println("-".repeat(40));
@@ -30,14 +54,15 @@ public class MenuOptions {
 		
 		String accountManagementMenu = """
 				Choose one option:
-					1 - Deposit
-					2 - Withdraw
-					3 - Return
-					""";
+				1 - Deposit
+				2 - Withdraw
+				3 - Return
+				""";
 		
 		while (true) {
 			System.out.print("Welcome to "+bank.getName()+" Bank\n\n");
 			System.out.print(customerMenu);
+			System.out.println("-".repeat(40));
 			String option = scanner.nextLine();
 			System.out.println("-".repeat(40));
 			
@@ -51,7 +76,7 @@ public class MenuOptions {
 				System.out.println("\nYour bank number is "+randomGeneratedId);
 			} else if (option.equals("2")) {
 				System.out.println("Existing customer\n");
-				System.out.print("Enter your bank number: ");
+				System.out.print("Enter your customer number: ");
 				String id = scanner.nextLine();
 				Customer customer = bank.getCustomer(Integer.parseInt(id));
 				showAccountManagementOptions(scanner, accountManagementMenu, customer, bank);
