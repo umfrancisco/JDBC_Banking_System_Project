@@ -9,8 +9,8 @@ import com.umfrancisco.gui.MenuOptions;
 
 public class Main {
 	public static void main(String[] args) {
-		BankDAO bankService = new BankDAO();
-		List<Bank> banks = bankService.getBanks();
+		BankDAO bankDAO = new BankDAO();
+		List<Bank> banks = bankDAO.getBanks();
 		
 		String banksStrFormatted = BankDAO.printBankNumbers(banks);
 		String bankMenu = "Hello and Welcome!\nType your bank number:\n\n"+banksStrFormatted;

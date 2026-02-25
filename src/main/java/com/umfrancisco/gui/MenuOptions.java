@@ -11,7 +11,7 @@ public class MenuOptions {
 	
 	public static Bank showBankOptions(Scanner scanner, String bankMenu, List<Bank> banks) {
 		while (true) {
-			System.out.print(bankMenu);
+			System.out.printf("%70s", bankMenu);
 			System.out.println("-".repeat(40));
 			String option = scanner.nextLine();
 			System.out.println("-".repeat(40));
